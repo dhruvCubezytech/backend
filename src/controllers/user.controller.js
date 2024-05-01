@@ -3,10 +3,14 @@ import { ApiError } from '../utils/ApiError.js';
 import { User } from '../modals/user.modal.js'
 import { uploadOnCloudinary } from '../utils/cloudinary.js'
 import { ApiResponse } from '../utils/ApiResponse.js'
+import { response } from 'express';
 
 const registerUser = asyncHandler(async (req, res, next) => {
 
     const { fullName, email, userName, password } = req.body;
+    // console.log(req.body)
+    // console.log(req.files)
+
     if (
         [fullName, email, userName, password].some((field) => field?.trim() === "")
     ) {
